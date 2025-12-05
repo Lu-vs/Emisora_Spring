@@ -7,14 +7,16 @@ import com.example.demo.repository.EmisoraRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.http.HttpStatus;
 
+
+@CrossOrigin(origins = {"http://localhost:5173", "http://127.0.0.1:5173"})
 @RestController
 @RequestMapping("/emisoras")
 public class UpdateEmisora {
 
     @Autowired
     private EmisoraRepository emisoraRepository;
-
     @PutMapping("/{id}")
     public ResponseEntity<Emisora> actualizarEmisora(@PathVariable Integer id, 
                                                     @RequestBody Emisora emisoraActualizada) {
